@@ -1,26 +1,26 @@
 import { Exclude } from "class-transformer";
 import { Column,Entity,PrimaryGeneratedColumn,CreateDateColumn, UpdateDateColumn } from "typeorm";
 @Entity('users')
-export class UserEntity{
+export class User{
     
     @PrimaryGeneratedColumn('uuid')
-    id:string;
+    id!:string;
 
     @Column({type:"varchar",length:200})
-    name:string;
+    name!:string;
 
     @Column({type:"varchar",unique:true,length:120})
-    email:string;
+    email!:string;
 
     @Exclude()
     @Column({type:"varchar",length:100})
-    password:string;
+    password!:string;
 
     @CreateDateColumn()
-    createdAt:Date;
+    createdAt!:Date;
 
     @UpdateDateColumn()
-    updatedAt:Date;
+    updatedAt!:Date;
 
 
 }

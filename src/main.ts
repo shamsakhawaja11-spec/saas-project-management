@@ -1,32 +1,34 @@
-import {NestFactory,Reflector} from '@nestjs/core';
-import {AppModule } from './app.module';
-import {ClassSerializerInterceptor, ValidationPipe} from '@nestjs/common';
-import {AllExceptionsFilter} from './common/filters/AllExceptionsFilter';
-import {HttpExceptionFilter} from './common/filters/HttpExceptionFilter';
+import 'reflect-metadata';
+import { NestFactory, Reflector } from '@nestjs/core';
+import { AppModule } from './app.module';
+import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
+import { AllExceptionsFilter } from './common/filters/AllExceptionsFilter';
+import { HttpExceptionFilter } from './common/filters/HttpExceptionFilter';
 import { ResponseInterceptor } from './common/interceptors/response.interceptor';
-async function bootstrap(){
-    const app=await NestFactory.create(AppModule);
 
-    app.useGlobalPipes(
-        new ValidationPipe({
-            whitelist:true,
-            forbidNonWhitelisted:true,
-            transform:true,
-        }),
-    );
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
 
-    app.useGlobalInterceptors(
-        new ClassSerializerInterceptor(app.get(Reflector)),
-        new ResponseInterceptor(),
-    );
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+    }),
+  );
 
-    app.useGlobalFilters(
-        new HttpExceptionFilter(),
-        new AllExceptionsFilter(),
-    );
+  app.useGlobalInterceptors(
+    new ClassSerializerInterceptor(app.get(Reflector)),
+    new ResponseInterceptor(),
+  );
 
-    await app.listen(3000);
-    console.log("http://localhost:3000");
+  app.useGlobalFilters(
+    new HttpExceptionFilter(),
+    new AllExceptionsFilter(),
+  );
 
-    bootstrap();
+  await app.listen(3000);
+  console.log('http://localhost:3000');
 }
+
+bootstrap();
