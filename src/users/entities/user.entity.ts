@@ -2,6 +2,7 @@ import { Exclude } from "class-transformer";
 import { Column,Entity,PrimaryGeneratedColumn,CreateDateColumn, UpdateDateColumn } from "typeorm";
 @Entity('users')
 export class UserEntity{
+    
     @PrimaryGeneratedColumn('uuid')
     id:string;
 
@@ -14,7 +15,6 @@ export class UserEntity{
     @Exclude()
     @Column({type:"varchar",length:100})
     password:string;
-
 
     @CreateDateColumn()
     createdAt:Date;
