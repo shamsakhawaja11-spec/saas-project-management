@@ -3,8 +3,8 @@ export class LoginDto{
     @IsString()
     @IsEmail()
     @IsNotEmpty()
-    email:string;
+    email!:string;
     @IsNotEmpty()
     @IsString()
-    password:string;
+    password!:string;
 }
