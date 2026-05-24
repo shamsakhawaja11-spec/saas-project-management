@@ -1,4 +1,4 @@
-export class WorkspaceResponse{
+export class WorkspaceResponseDto{
     id!:string;
     name!:string;
     description!:string;
