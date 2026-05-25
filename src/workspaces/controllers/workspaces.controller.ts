@@ -23,14 +23,13 @@ export class WorkspacesController{
         return this.workspacesService.getWorkspaceById(id,ownerId);
     }
     @Put(':id')
-    async updateWorkspace( @Param('id') id:string,@Body() updateWorkspace:Partial<CreateWorkspaceDto>):Promise<WorkspaceResponseDto>{
+    async updateWorkspace( @Param('id') id:string,@Request() req:any,@Body() updateWorkspace:Partial<CreateWorkspaceDto>):Promise<WorkspaceResponseDto>{
        const ownerId=req.user?.id;
         return this.workspacesService.updateWorkspace(id,ownerId,updateWorkspace);
     }
     @Delete(':id')
     async deleteWorkspace(@Param('id') id:string,@Request() req:any):Promise<void>{
         const ownerId=req.user?.id;
-
         return this.workspacesService.deleteWorkspace(id,ownerId);
     }
 }

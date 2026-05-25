@@ -1,11 +1,12 @@
-import { Entity,Column, CreateDateColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Entity,Column, CreateDateColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn, OneToMany } from "typeorm";
 import { User } from "../../users/entities/user.entity";
+import { Project } from "../../projects/entities/project.entity";
 
 @Entity('workspaces')
 export class Workspace{
     @PrimaryGeneratedColumn('uuid')
     id!:string;
-    
+
     @Column({type:"varchar",length:100})
     name!:string;
 
@@ -14,6 +15,9 @@ export class Workspace{
 
     @ManyToOne(()=>User,(user)=>user.workspace)
     owner!:User;
+
+    @OneToMany(()=>Project,(project)=>project.workspace)
+    projects!:Project[];
 
     @Column({type:'uuid'})
     ownerId!:string;

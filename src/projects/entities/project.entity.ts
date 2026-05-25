@@ -12,7 +12,7 @@ export class Project{
     @Column({type:"varchar",length:123,nullable:true})
     description!:string;
 
-    @ManyToOne(()=>Workspace)
+    @ManyToOne(()=>Workspace,(Workspace)=>Workspace.projects)
     @JoinColumn({name:'workspaceId'})
     workspace!:Workspace;
 
