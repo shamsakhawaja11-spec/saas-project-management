@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
 const class_transformer_1 = require("class-transformer");
 const typeorm_1 = require("typeorm");
+const workspace_entity_1 = require("../../workspaces/entities/workspace.entity");
 let User = class User {
 };
 exports.User = User;
@@ -32,6 +33,10 @@ __decorate([
     (0, typeorm_1.Column)({ type: "varchar", length: 100 }),
     __metadata("design:type", String)
 ], User.prototype, "password", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => workspace_entity_1.Workspace, (Workspace) => Workspace.owner),
+    __metadata("design:type", workspace_entity_1.Workspace)
+], User.prototype, "workspace", void 0);
 __decorate([
     (0, typeorm_1.CreateDateColumn)(),
     __metadata("design:type", Date)

@@ -1,5 +1,6 @@
 import { Exclude } from "class-transformer";
-import { Column,Entity,PrimaryGeneratedColumn,CreateDateColumn, UpdateDateColumn } from "typeorm";
+import { Column,Entity,PrimaryGeneratedColumn,CreateDateColumn, UpdateDateColumn, OneToMany } from "typeorm";
+import { Workspace } from "../../workspaces/entities/workspace.entity";
 @Entity('users')
 export class User{
     
@@ -15,6 +16,9 @@ export class User{
     @Exclude()
     @Column({type:"varchar",length:100})
     password!:string;
+
+    @OneToMany(()=>Workspace,(Workspace)=>Workspace.owner)
+    workspace!:Workspace;
 
     @CreateDateColumn()
     createdAt!:Date;

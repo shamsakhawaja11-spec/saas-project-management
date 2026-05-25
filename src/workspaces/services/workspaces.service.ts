@@ -38,7 +38,7 @@ export class WorkspacesService{
         }
         Object.assign(workspace,updateData);
         const update=await this.workSpaceRepository.save(workspace);
-        return plainToClass(WorkspaceResponseDto,workspace);
+        return plainToClass(WorkspaceResponseDto,update);
     }
     async deleteWorkspace(id:string,ownerId:string):Promise<void>{
         const workspace=await this.workSpaceRepository.findByIdAndOwnerId(id,ownerId);
