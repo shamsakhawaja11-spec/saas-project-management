@@ -46,7 +46,7 @@ exports.UsersService = void 0;
 const common_1 = require("@nestjs/common");
 const bcrypt = __importStar(require("bcrypt"));
 const users_repository_1 = require("../repositories/users.repository");
-const user_response_dto_1 = require("../dtos/user-response.dto");
+const user_response_dto_1 = require("../dto/user-response.dto");
 const class_transformer_1 = require("class-transformer");
 let UsersService = class UsersService {
     constructor(usersRepository) {

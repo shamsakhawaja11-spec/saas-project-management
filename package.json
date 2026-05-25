@@ -3,19 +3,20 @@
   "version": "1.0.0",
   "description": "SaaS Project Management Tool with AI Chatbot",
   "main": "dist/main.js",
- "scripts": {
-  "start:dev": "nest start --watch",
-  "start": "nest start",
-  "build": "nest build",
-  "typeorm": "typeorm",
-  "typeorm:migration:generate": "nest build && typeorm migration:generate",
-  "typeorm:migration:run": "nest build && typeorm migration:run",
-  "typeorm:migration:revert": "nest build && typeorm migration:revert"
-},
+  "scripts": {
+    "start:dev": "nest start --watch",
+    "start": "nest start",
+    "build": "nest build",
+    "typeorm": "typeorm",
+    "typeorm:migration:generate": "nest build && typeorm migration:generate",
+    "typeorm:migration:run": "nest build && typeorm migration:run",
+    "typeorm:migration:revert": "nest build && typeorm migration:revert"
+  },
   "dependencies": {
     "@nestjs/common": "^10.3.0",
     "@nestjs/core": "^10.3.0",
     "@nestjs/jwt": "^11.0.2",
+    "@nestjs/mapped-types": "^2.1.1",
     "@nestjs/passport": "^11.0.5",
     "@nestjs/platform-express": "^10.4.22",
     "@nestjs/typeorm": "^11.0.1",

@@ -1,6 +1,6 @@
 import { UsersRepository } from "../repositories/users.repository";
-import { CreateUserDto } from "../dtos/create-user.dto";
-import { UserResponseDto } from "../dtos/user-response.dto";
+import { CreateUserDto } from "../dto/create-user.dto";
+import { UserResponseDto } from "../dto/user-response.dto";
 import { User } from "../entities/user.entity";
 export declare class UsersService {
     private usersRepository;

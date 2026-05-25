@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { WorkspacesRepository } from "../repositories/workspaces.repository";
-import { CreateWorkspaceDto } from "../dtos/create-workspace.dto";
-import { WorkspaceResponseDto } from "../dtos/workspace-response.dto";
+import { CreateWorkspaceDto } from "../dto/create-workspace.dto";
+import { WorkspaceResponseDto } from "../dto/workspace-response.dto";
 import { plainToClass } from "class-transformer";
 
 @Injectable()

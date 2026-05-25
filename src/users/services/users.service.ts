@@ -1,8 +1,8 @@
 import { BadRequestException, ConflictException, Injectable, NotFoundException, UnauthorizedException } from "@nestjs/common";
 import * as bcrypt from 'bcrypt';
 import { UsersRepository } from "../repositories/users.repository";
-import { CreateUserDto } from "../dtos/create-user.dto";
-import { UserResponseDto } from "../dtos/user-response.dto";
+import { CreateUserDto } from "../dto/create-user.dto";
+import { UserResponseDto } from "../dto/user-response.dto";
 import { plainToClass } from "class-transformer";
 import { User } from "../entities/user.entity";
 
