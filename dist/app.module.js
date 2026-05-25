@@ -12,6 +12,7 @@ const typeorm_1 = require("@nestjs/typeorm");
 const database_config_1 = require("./database/database.config");
 const users_module_1 = require("./users/users.module");
 const auth_module_1 = require("./auth/auth.module");
+const workspaces_module_1 = require("./workspaces/workspaces.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -19,7 +20,7 @@ exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             typeorm_1.TypeOrmModule.forRoot(database_config_1.databaseConfig),
-            users_module_1.UsersModule,
+            users_module_1.UsersModule, workspaces_module_1.WorkspacesModule,
             auth_module_1.AuthModule,
         ],
     })
