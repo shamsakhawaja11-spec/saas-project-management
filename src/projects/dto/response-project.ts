@@ -1,4 +1,4 @@
-export class ProjectResponseDto{
+export class ResponseProjectDto{
     id!:string;
     name!:string;
     description?:string;
