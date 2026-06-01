@@ -12,6 +12,7 @@ const jwt_1 = require("@nestjs/jwt");
 const users_module_1 = require("../users/users.module");
 const auth_service_1 = require("./services/auth.service");
 const auth_controller_1 = require("./controllers/auth.controller");
+const jwt_strategy_1 = require("./strategies/jwt.strategy");
 let AuthModule = class AuthModule {
 };
 exports.AuthModule = AuthModule;
@@ -20,11 +21,11 @@ exports.AuthModule = AuthModule = __decorate([
         imports: [
             users_module_1.UsersModule,
             jwt_1.JwtModule.register({
-                secret: 'your-secret-key',
+                secret: 'meandme',
                 signOptions: { expiresIn: '7d' },
             }),
         ],
-        providers: [auth_service_1.AuthService],
+        providers: [auth_service_1.AuthService, jwt_strategy_1.JwtStrategy],
         controllers: [auth_controller_1.AuthController],
     })
 ], AuthModule);
