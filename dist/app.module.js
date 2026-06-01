@@ -13,6 +13,7 @@ const database_config_1 = require("./database/database.config");
 const users_module_1 = require("./users/users.module");
 const auth_module_1 = require("./auth/auth.module");
 const workspaces_module_1 = require("./workspaces/workspaces.module");
+const projects_module_1 = require("./projects/projects.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -21,7 +22,7 @@ exports.AppModule = AppModule = __decorate([
         imports: [
             typeorm_1.TypeOrmModule.forRoot(database_config_1.databaseConfig),
             users_module_1.UsersModule, workspaces_module_1.WorkspacesModule,
-            auth_module_1.AuthModule,
+            auth_module_1.AuthModule, projects_module_1.ProjectsModule
         ],
     })
 ], AppModule);
