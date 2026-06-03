@@ -11,4 +11,4 @@ import { BoardsRepository } from "./repositories";
     providers:[BoardsService,BoardsRepository],
     exports:[BoardsService],
 })
-export class BoardModule{}
+export class BoardsModule{}
