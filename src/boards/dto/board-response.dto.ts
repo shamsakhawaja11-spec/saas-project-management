@@ -4,5 +4,5 @@ export class ResponseBoardDto{
     description?:string;
     projectId!:string;
     createdAt!:Date;
-    updatedAt!:string;
+    updatedAt!:Date;
 }
