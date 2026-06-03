@@ -5,12 +5,13 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { WorkspacesModule } from './workspaces/workspaces.module';
 import { ProjectsModule } from './projects/projects.module';
+import { BoardsModule } from './boards/boards.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(databaseConfig),
     UsersModule,WorkspacesModule,
-    AuthModule,ProjectsModule
+    AuthModule,ProjectsModule,BoardsModule
   ],
 })
 export class AppModule {}
