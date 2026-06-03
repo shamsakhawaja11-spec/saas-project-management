@@ -1,4 +1,4 @@
-export class ResponseBoard{
+export class ResponseBoardDto{
     id!:string;
     name!:string;
     description?:string;

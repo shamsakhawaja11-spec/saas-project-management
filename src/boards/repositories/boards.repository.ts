@@ -4,11 +4,11 @@ import { Board } from "../entities/board.entity";
 import { DataSource } from "typeorm";
 
 @Injectable()
-export class BoardRepository extends Repository<Board>{
+export class BoardsRepository extends Repository<Board>{
     constructor(dataSource:DataSource){
         super(Board,dataSource.createEntityManager());
     }
-    async findByProjectById(projectId:string):Promise<Board []>{
+    async findByProjectId(projectId:string):Promise<Board []>{
         return this.find({where:{projectId},
             order:{createdAt:'DESC'},
         });
