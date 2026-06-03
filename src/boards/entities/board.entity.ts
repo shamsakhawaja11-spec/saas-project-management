@@ -1,5 +1,6 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Project } from "../../projects/entities/project.entity";
+import { Task } from "../../tasks/entitie/task.entity";
 
 @Entity('boards')
 export class Board{
@@ -18,4 +19,6 @@ export class Board{
     createdAt!:Date;
     @UpdateDateColumn()
     updatedAt!:Date;
+    @ManyToOne(()=>Task,(task)=>task.board,{onDelete:'CASCADE'})
+    task!:Task[];
 }
