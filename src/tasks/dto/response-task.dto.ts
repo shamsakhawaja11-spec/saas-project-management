@@ -2,14 +2,14 @@ import { TaskPriority, TaskStatus } from "../entities/task.entity";
 
 export class ResponseTaskDto{
     title!:string;
-    description!:string;
+    description?:string;
     status!:TaskStatus;
     priority!:TaskPriority;
-    position!:number;
-    dueDate!:Date;
+    position?:number;
+    dueDate?:Date;
     estimatedHours!:number;
     boardId!:string;
-    assigneeId!:string;
+    assigneeId?:string;
     creatorId!:string;
     createdAt!:Date;
     updatedAt!:Date;

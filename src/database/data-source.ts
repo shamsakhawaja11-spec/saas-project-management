@@ -10,6 +10,6 @@ export const AppDataSource = new DataSource({
   synchronize: false,
   logging: false,
   entities: ['dist/**/*.entity.js'],
-  migrations: ['dist/migrations/*.js'],
+  migrations: ['dist/database/migrations/*.js'],
   migrationsTableName: 'typeorm_migrations',
 });

@@ -53,7 +53,7 @@ export class Task {
   @Column({ type: 'uuid' })
   boardId!: string;
 
-  @ManyToOne(() => Board, (board) => board.task, { onDelete: 'CASCADE' })
+  @ManyToOne(() => Board, (board) => board.tasks, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'boardId' })
   board!: Board;
 
