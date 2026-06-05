@@ -6,9 +6,11 @@ import {
   UpdateDateColumn,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
 import { Board } from '../../boards/entities/board.entity';
 import { User } from '../../users/entities/user.entity';
+import { Comment } from '../../comments/entities/comment.entity';
 
 export enum TaskStatus {
   TODO = 'todo',
@@ -76,4 +78,6 @@ export class Task {
 
   @UpdateDateColumn()
   updatedAt!: Date;
+  @OneToMany(()=>Comment,(comments)=>comments.task)
+  comments!:Comment[];
 }
