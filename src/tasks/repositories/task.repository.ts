@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { DataSource, Repository } from "typeorm";
 import { Task } from "../entities/task.entity";
 import { CreateTaskDto } from "../dto/create-task.dto";
+import { UpdateTaskDto } from "../dto";
 
 
 @Injectable()
@@ -26,7 +27,7 @@ export class TasksRepository extends Repository<Task>{
     async findById(taskId:string):Promise<Task | null>{
         return await this.findOne({where:{id:taskId}});
     }
-    async updateTask(task:Task,updateTask:Partial<Task>):Promise<Task>{
+    async updateTask(task:Task,updateTask:Partial<UpdateTaskDto>):Promise<Task>{
        Object.assign(task,updateTask);
        return await this.save(task);
     }

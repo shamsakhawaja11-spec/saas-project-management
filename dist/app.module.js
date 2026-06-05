@@ -16,6 +16,7 @@ const workspaces_module_1 = require("./workspaces/workspaces.module");
 const projects_module_1 = require("./projects/projects.module");
 const boards_module_1 = require("./boards/boards.module");
 const tasks_module_1 = require("./tasks/tasks.module");
+const comments_module_1 = require("./comments/comments.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -24,7 +25,8 @@ exports.AppModule = AppModule = __decorate([
         imports: [
             typeorm_1.TypeOrmModule.forRoot(database_config_1.databaseConfig),
             users_module_1.UsersModule, workspaces_module_1.WorkspacesModule,
-            auth_module_1.AuthModule, projects_module_1.ProjectsModule, boards_module_1.BoardsModule, tasks_module_1.TasksModule
+            auth_module_1.AuthModule, projects_module_1.ProjectsModule, boards_module_1.BoardsModule,
+            tasks_module_1.TasksModule, comments_module_1.CommentsModule,
         ],
     })
 ], AppModule);

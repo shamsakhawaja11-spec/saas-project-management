@@ -19,9 +19,9 @@ export class CommentsRepository extends Repository<Comment>{
     async findById(id:string):Promise<Comment|null>{
         return await this.findOne({where:{id}});
     }
-    async updateComment(comment:Comment,content:string){
+    async updateComment(comment:Comment,content:string):Promise<Comment>{
         comment.content=content;
-        await this.save(comment);
+        return await this.save(comment);
     }
     async removeComment(id:string):Promise<void>{
         await this.delete(id);

@@ -13,6 +13,7 @@ exports.User = void 0;
 const class_transformer_1 = require("class-transformer");
 const typeorm_1 = require("typeorm");
 const workspace_entity_1 = require("../../workspaces/entities/workspace.entity");
+const comment_entity_1 = require("../../comments/entities/comment.entity");
 let User = class User {
 };
 exports.User = User;
@@ -35,7 +36,7 @@ __decorate([
 ], User.prototype, "password", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(() => workspace_entity_1.Workspace, (Workspace) => Workspace.owner),
-    __metadata("design:type", workspace_entity_1.Workspace)
+    __metadata("design:type", Array)
 ], User.prototype, "workspace", void 0);
 __decorate([
     (0, typeorm_1.CreateDateColumn)(),
@@ -45,6 +46,10 @@ __decorate([
     (0, typeorm_1.UpdateDateColumn)(),
     __metadata("design:type", Date)
 ], User.prototype, "updatedAt", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => comment_entity_1.Comment, (Comment) => Comment.author),
+    __metadata("design:type", Array)
+], User.prototype, "comments", void 0);
 exports.User = User = __decorate([
     (0, typeorm_1.Entity)('users')
 ], User);
