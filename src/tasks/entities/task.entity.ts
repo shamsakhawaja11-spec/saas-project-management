@@ -11,6 +11,7 @@ import {
 import { Board } from '../../boards/entities/board.entity';
 import { User } from '../../users/entities/user.entity';
 import { Comment } from '../../comments/entities/comment.entity';
+import { TimeEntry } from '../../time-tracking/entities/time-entries.entity';
 
 export enum TaskStatus {
   TODO = 'todo',
@@ -80,4 +81,7 @@ export class Task {
   updatedAt!: Date;
   @OneToMany(()=>Comment,(comments)=>comments.task)
   comments!:Comment[];
+  @OneToMany(()=>TimeEntry,(timeEntry)=>timeEntry.task)
+  timeEntries!:TimeEntry[];
+  
 }

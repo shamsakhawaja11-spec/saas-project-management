@@ -2,6 +2,7 @@ import { Exclude } from "class-transformer";
 import { Column,Entity,PrimaryGeneratedColumn,CreateDateColumn, UpdateDateColumn, OneToMany } from "typeorm";
 import { Workspace } from "../../workspaces/entities/workspace.entity";
 import { Comment } from "../../comments/entities/comment.entity";
+import { TimeEntry } from "../../time-tracking/entities/time-entries.entity";
 @Entity('users')
 export class User{
     
@@ -28,6 +29,7 @@ export class User{
     updatedAt!:Date;
     @OneToMany(()=>Comment,(Comment)=>Comment.author)
     comments!:Comment[];
-
+    @OneToMany(()=>TimeEntry,(timeEntry)=>timeEntry.user)
+    timeEntries!:TimeEntry[];
 
 }
