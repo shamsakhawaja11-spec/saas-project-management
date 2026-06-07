@@ -9,13 +9,14 @@ import { BoardsModule } from './boards/boards.module';
 import { TasksModule } from './tasks/tasks.module';
 import { CommentsModule } from './comments/comments.module';
 import { TimeTrackingModule } from './time-tracking/time-tracking.module';
+import { NotificationsModule } from './notifications/notifications.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(databaseConfig),
     UsersModule,WorkspacesModule,
     AuthModule,ProjectsModule,BoardsModule,
-    TasksModule,CommentsModule,TimeTrackingModule,
+    TasksModule,CommentsModule,TimeTrackingModule,NotificationsModule,
   ],
 })
 export class AppModule {}
