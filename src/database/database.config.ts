@@ -6,6 +6,7 @@ import { Board } from "../boards/entities/board.entity";
 import { Task } from "../tasks/entities/task.entity";
 import { Comment } from "../comments/entities/comment.entity";
 import { TimeEntry } from "../time-tracking/entities/time-entries.entity";
+import { Notification } from "../notifications/entities/notification.entity";
 
 export const databaseConfig:TypeOrmModuleOptions={
     type:'postgres',
@@ -14,7 +15,7 @@ export const databaseConfig:TypeOrmModuleOptions={
     username:'postgres',
     password:'1234',
     database:'saas_db',
-    entities:[User,Workspace,Project,Board,Task,Comment,TimeEntry],
+    entities:[User,Workspace,Project,Board,Task,Comment,TimeEntry,Notification],
     synchronize:false,
     logging:true,
 }

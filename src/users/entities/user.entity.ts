@@ -3,6 +3,7 @@ import { Column,Entity,PrimaryGeneratedColumn,CreateDateColumn, UpdateDateColumn
 import { Workspace } from "../../workspaces/entities/workspace.entity";
 import { Comment } from "../../comments/entities/comment.entity";
 import { TimeEntry } from "../../time-tracking/entities/time-entries.entity";
+import { Notification } from "../../notifications/entities/notification.entity";
 @Entity('users')
 export class User{
     
@@ -31,5 +32,6 @@ export class User{
     comments!:Comment[];
     @OneToMany(()=>TimeEntry,(timeEntry)=>timeEntry.user)
     timeEntries!:TimeEntry[];
-
+    @OneToMany(()=>Notification,(notication)=>notication.user)
+    notifications!:Notification[];
 }
