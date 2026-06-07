@@ -9,7 +9,7 @@ export class ResponseTimeEntryDto{
     @Transform(({value})=>'${Math.floor(value/60)}h${value%60}m')
     formattedTime!:string;
     @Expose()
-    descrption!:string;
+    description!:string;
     @Expose()
     logData!:string;
     @Expose()

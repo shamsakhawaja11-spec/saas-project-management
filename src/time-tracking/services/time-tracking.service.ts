@@ -1,11 +1,12 @@
 import { ForbiddenException, Injectable, NotFoundException } from "@nestjs/common";
-import { TimeEntriesRepository } from "../repositories/time-entries.repository";
 import { TimeEntry } from "../entities/time-entries.entity";
+import { TimeEntriesRepository } from "../repositories/time-entries.repository";
 import { CreateTimeEntryDto, UpdateTimeEntryDto } from "../dto";
 
 @Injectable()
 export class TimeTrackingService{
     constructor(private timeEntriesRepository:TimeEntriesRepository){}
+    
     async create(createTimeEntry:CreateTimeEntryDto,userId:string):Promise<TimeEntry>{
         const res=this.timeEntriesRepository.create({...createTimeEntry,userId});
         return await this.timeEntriesRepository.save(res);

@@ -8,5 +8,5 @@ export class TaskSummaryDto{
     inProgress!:number;
     inReview!:number;
     done!:number;
-    overDue!:number;
+    overdue!:number;
 }

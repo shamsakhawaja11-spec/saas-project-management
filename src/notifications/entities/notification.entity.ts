@@ -28,5 +28,4 @@ export class Notification{
     userId!:string;
     @CreateDateColumn()
     createdAt!:Date;
-
 }

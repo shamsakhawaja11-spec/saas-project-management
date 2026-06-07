@@ -7,7 +7,7 @@ export class CreateNotificationDto{
     type!:NotificationType;
     @IsString()
     @IsNotEmpty()
-    message!:String;
+    message!:string;
     @IsUUID()
     @IsNotEmpty()
     userId!:string;
