@@ -4,6 +4,7 @@ import { Workspace } from "../../workspaces/entities/workspace.entity";
 import { Comment } from "../../comments/entities/comment.entity";
 import { TimeEntry } from "../../time-tracking/entities/time-entries.entity";
 import { Notification } from "../../notifications/entities/notification.entity";
+import { Subscription } from "../../payments/entities/subscription.entity";
 @Entity('users')
 export class User{
     
@@ -34,4 +35,6 @@ export class User{
     timeEntries!:TimeEntry[];
     @OneToMany(()=>Notification,(notication)=>notication.user)
     notifications!:Notification[];
+    @OneToMany(() => Subscription, (subscription) => subscription.user)
+    subscriptions!: Subscription[];
 }
