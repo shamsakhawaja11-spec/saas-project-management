@@ -11,9 +11,14 @@ import { CommentsModule } from './comments/comments.module';
 import { TimeTrackingModule } from './time-tracking/time-tracking.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { ReportsModule } from './reports/reports.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal:true,
+      envFilePath:'.env'
+    }),
     TypeOrmModule.forRoot(databaseConfig),
     UsersModule,WorkspacesModule,
     AuthModule,ProjectsModule,BoardsModule,
