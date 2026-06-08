@@ -7,6 +7,7 @@ import { Task } from "../tasks/entities/task.entity";
 import { Comment } from "../comments/entities/comment.entity";
 import { TimeEntry } from "../time-tracking/entities/time-entries.entity";
 import { Notification } from "../notifications/entities/notification.entity";
+import { Subscription } from "../payments/entities/subscription.entity";
 export const databaseConfig: TypeOrmModuleOptions = {
   type: 'postgres',
   host: process.env.DB_HOST || 'localhost',
@@ -14,7 +15,7 @@ export const databaseConfig: TypeOrmModuleOptions = {
   username: process.env.DB_USERNAME || 'postgres',
   password: process.env.DB_PASSWORD || '1234',
   database: process.env.DB_NAME || 'saas_db',
-  entities: [User, Workspace, Project, Board, Task, Comment, TimeEntry, Notification],
+  entities: [User, Workspace, Project, Board, Task, Comment, TimeEntry, Notification,Subscription],
   synchronize: false,
   logging: true,
 };
