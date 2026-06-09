@@ -12,6 +12,7 @@ import { TimeTrackingModule } from './time-tracking/time-tracking.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { ReportsModule } from './reports/reports.module';
 import { ConfigModule } from '@nestjs/config';
+import { PaymentsModule } from './payments/payments.module';
 
 @Module({
   imports: [
@@ -22,7 +23,7 @@ import { ConfigModule } from '@nestjs/config';
     TypeOrmModule.forRoot(databaseConfig),
     UsersModule,WorkspacesModule,
     AuthModule,ProjectsModule,BoardsModule,
-    TasksModule,CommentsModule,TimeTrackingModule,NotificationsModule,ReportsModule,
+    TasksModule,CommentsModule,TimeTrackingModule,NotificationsModule,ReportsModule,PaymentsModule,
   ],
 })
 export class AppModule {}
