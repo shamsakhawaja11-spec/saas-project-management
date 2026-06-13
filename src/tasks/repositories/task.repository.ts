@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { DataSource, Repository } from "typeorm";
-import { Task } from "../entities/task.entity";
+import { Task, TaskPriority, TaskStatus } from "../entities/task.entity";
 import { CreateTaskDto } from "../dto/create-task.dto";
 import { UpdateTaskDto } from "../dto";
 
@@ -17,8 +17,13 @@ export class TasksRepository extends Repository<Task>{
     }
     
     async createTask(createTaskDto:CreateTaskDto,creatorId:string):Promise<Task>{
-        const task=this.create({...createTaskDto,creatorId});
-        return this.save(task)
+        const task= this.create({
+        ...createTaskDto,
+        creatorId,
+        status: createTaskDto.status as TaskStatus,
+        priority: createTaskDto.priority as TaskPriority,
+        });
+        return await this.save(task)
     }
     async findAllByBoard(boardId:string):Promise<Task[]>{
         return await this.find({where:{boardId}, order:{position:'ASC',createdAt:'ASC'}

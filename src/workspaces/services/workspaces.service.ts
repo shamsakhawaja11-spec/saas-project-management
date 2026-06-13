@@ -43,4 +43,11 @@ async updateWorkspace(id: string, ownerId: string, updateData: Partial<CreateWor
   const update = await this.workSpaceRepository.save(workspace);
   return plainToClass(WorkspaceResponseDto, update, { excludeExtraneousValues: true });
 }
+async deleteWorkspace(id: string, ownerId: string): Promise<void> {
+  const workspace = await this.workSpaceRepository.findByIdAndOwnerId(id, ownerId);
+  if (!workspace) {
+    throw new NotFoundException('Workspace not found');
+  }
+  await this.workSpaceRepository.delete(id);
+}
 }
