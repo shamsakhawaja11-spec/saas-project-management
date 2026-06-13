@@ -1,8 +1,21 @@
-export class WorkspaceResponseDto{
-    id!:string;
-    name!:string;
-    description!:string;
-    ownerId!:string;
-    createdAt!:Date;
-    updatedAt!:Date;
+import { Expose } from 'class-transformer';
+
+export class WorkspaceResponseDto {
+  @Expose()
+  id!: string;
+
+  @Expose()
+  name!: string;
+
+  @Expose()
+  description!: string;
+
+  @Expose()
+  ownerId!: string;
+
+  @Expose()
+  createdAt!: Date;
+
+  @Expose()
+  updatedAt!: Date;
 }

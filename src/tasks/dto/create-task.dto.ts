@@ -1,35 +1,44 @@
-import { IsDateString, IsEnum, IsInt, IsNotEmpty, IsOptional, IsString, IsUUID, Max, MaxLength, Min, MinLength } from "class-validator";
-import { TaskPriority, TaskStatus } from "../entities/task.entity";
+// src/types/task.types.ts
 
-export class CreateTaskDto{
-    @IsString()
-    @IsNotEmpty()
-    @MinLength(3)
-    @MaxLength(100)
-    title!:string;
-    @IsOptional()
-    description?:string;
-    @IsEnum(TaskStatus)
-    @IsOptional()
-    status?:TaskStatus;
-    @IsEnum(TaskPriority)
-    @IsOptional()
-    priority?:TaskPriority;
-    @IsInt()
-    @IsOptional()@Min(0)
-    position?:number;
-    @IsOptional()
-    @IsDateString()
-    duedate?:string;
-    @IsOptional()
-    @Min(0)
-    @Max(1000)
-    estimatedHours?:number;
-    @IsUUID()
-    @IsNotEmpty()
-    boardId!:string;
-    @IsOptional()
-    @IsUUID()
-    assigneeId?:string;
+export type TaskStatus = 'todo' | 'in_progress' | 'in_review' | 'done';
 
+export type TaskPriority = 'low' | 'medium' | 'high' | 'urgent';
+
+export interface Task {
+  id: string;
+  title: string;
+  description?: string;
+  status: TaskStatus;
+  priority: TaskPriority;
+  position?: number;
+  dueDate?: string;
+  estimatedHours: number;
+  boardId: string;
+  assigneeId?: string;
+  creatorId: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface CreateTaskDto {
+  title: string;
+  description?: string;
+  status?: TaskStatus;
+  priority?: TaskPriority;
+  position?: number;
+  dueDate?: string;
+  estimatedHours?: number;
+  boardId: string;
+  assigneeId?: string;
+}
+
+export interface UpdateTaskDto {
+  title?: string;
+  description?: string;
+  status?: TaskStatus;
+  priority?: TaskPriority;
+  position?: number;
+  dueDate?: string;
+  estimatedHours?: number;
+  assigneeId?: string;
 }

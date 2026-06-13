@@ -52,10 +52,8 @@ export class Task {
 
   @Column({ type: 'int', default: 0 })
   estimatedHours!: number;
-
   @Column({ type: 'uuid' })
   boardId!: string;
-
   @ManyToOne(() => Board, (board) => board.tasks, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'boardId' })
   board!: Board;
