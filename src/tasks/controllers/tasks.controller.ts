@@ -22,10 +22,10 @@ export class TasksController{
     }
     @Patch(':id')
     async update(@Request()req:any,@Param('id')id:string,@Body()updateTaskDto:UpdateTaskDto){
-        return this.tasksService.update(id,updateTaskDto,req.user.id);
+        return this.tasksService.update(id,updateTaskDto,req.user.sub);
     }
     @Delete(':id')
     async remove(@Param('id')id:string,@Request() req:any){
-        return this.tasksService.remove(id,req.user.id);
+        return this.tasksService.remove(id,req.user.sub);
     }
 }
