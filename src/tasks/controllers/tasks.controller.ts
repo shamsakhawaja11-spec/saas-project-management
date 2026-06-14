@@ -10,7 +10,7 @@ export class TasksController{
 
     @Post()
     async create(@Request() req:any,@Body()createTaskDto:CreateTaskDto):Promise<ResponseTaskDto>{
-        return await this.tasksService.create(req.user.id,createTaskDto);
+        return await this.tasksService.create(req.user.sub,createTaskDto);
     }
     @Get('boards/:boardId')
     async findByBoard(@Param('boardId')boardId:string){
