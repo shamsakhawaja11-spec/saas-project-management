@@ -37,4 +37,10 @@ export class TasksService{
         }
         await this.tasksRepository.removeTask(id);
     }
+    async findByCreator(creatorId: string): Promise<Task[]> {
+  return this.tasksRepository.find({
+    where: { creatorId },
+    order: { createdAt: 'DESC' },
+  });
+}
 }

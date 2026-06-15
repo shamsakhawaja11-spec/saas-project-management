@@ -28,4 +28,8 @@ export class TasksController{
     async remove(@Param('id')id:string,@Request() req:any){
         return this.tasksService.remove(id,req.user.sub);
     }
+    @Get('my/tasks')
+    async findMyTasks(@Request() req: any) {
+        return this.tasksService.findByCreator(req.user.sub);
+    }
 }
