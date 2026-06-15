@@ -21,5 +21,5 @@ export class Comment{
     @CreateDateColumn()
     createdAt!:Date;
     @UpdateDateColumn()
-    updateAt!:Date;
+    updatedAt!:Date;
 }

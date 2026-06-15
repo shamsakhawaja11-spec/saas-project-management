@@ -4,7 +4,7 @@ export class ResponseCommentDto{
     taskId!:string;
     authorId!:string;
     createdAt!:Date;
-    updateAt!:Date;
+    updatedAt!:Date;
 
 
 }

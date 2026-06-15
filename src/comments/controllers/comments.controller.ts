@@ -10,7 +10,7 @@ export class CommentsController {
 
   @Post()
   async create(@Request() req: any, @Body() createCommentDto: CreateCommentDto): Promise<ResponseCommentDto> {
-    return this.commentsService.create(req.user.id, createCommentDto);
+    return this.commentsService.create(req.user.sub, createCommentDto);
   }
 
   @Get('task/:taskId')
@@ -25,11 +25,11 @@ export class CommentsController {
 
   @Patch(':id')
   async update(@Param('id') id: string, @Body() updateCommentDto: UpdateCommentDto, @Request() req: any): Promise<ResponseCommentDto> {
-    return this.commentsService.update(id, updateCommentDto, req.user.id);
+    return this.commentsService.update(id, updateCommentDto, req.user.sub);
   }
 
   @Delete(':id')
   async remove(@Param('id') id: string, @Request() req: any): Promise<void> {
-    await this.commentsService.remove(id, req.user.id);
+    await this.commentsService.remove(id, req.user.sub);
   }
 }
