@@ -1,7 +1,7 @@
 import { Body, Controller, Post, UseGuards,Request, Param, Get, Res, Put, ParseArrayPipe, Req, Delete } from "@nestjs/common";
 import { JwtAuthGuard } from "../../auth/guards/jwt-auth.guard";
 import { TimeTrackingService } from "../services/time-tracking.service";
-import { CreateTimeEntryDto, ResponseTimeEntryDto, UpdateTimeEntryDto } from "../dto";
+import { CreateTimeEntryDto, UpdateTimeEntryDto } from "../dto";
 
 @Controller('time-entries')
 @UseGuards(JwtAuthGuard)
@@ -10,7 +10,7 @@ export class TimeTrackingController{
 
     @Post()
     async create(@Body()dto:CreateTimeEntryDto,@Request()req:any){
-        return this.timetrackingService.create(dto,req.user.userId);
+        return this.timetrackingService.create(dto,req.user.user.sub);
     }
     @Get('/task/:taskId/')
     async findByTask(@Param('taskId')taskId:string){
@@ -22,7 +22,7 @@ export class TimeTrackingController{
     }
     @Get('my-entries')
     async findMyEntries(@Request()req:any){
-        return this.timetrackingService.findByUser(req.user.id);
+        return this.timetrackingService.findByUser(req.user.sub);
     }
     @Get('/task/:taslId/total')
     getTotalByTask(@Param('taskId')taskId:string){
@@ -30,14 +30,14 @@ export class TimeTrackingController{
     }
     @Get('my-total')
     getMyTotal(@Request()req:any){
-        return  this.timetrackingService.gotTotalMinutesByTask(req.user.id);
+        return  this.timetrackingService.gotTotalMinutesByTask(req.user.sub);
     }
     @Put(':id')
     update(@Param('id')id:string,@Body()dto:UpdateTimeEntryDto,@Request()req:any){
-        return this.timetrackingService.update(id,dto,req.user.id)
+        return this.timetrackingService.update(id,dto,req.user.sub)
     }
     @Delete(':id')
     remove(@Param('id')id:string,@Request()req:any){
-        return this.timetrackingService.remove(id,req.user.id);
+        return this.timetrackingService.remove(id,req.user.sub);
     }
 }
