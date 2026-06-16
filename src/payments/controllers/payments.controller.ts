@@ -29,7 +29,7 @@ export class PaymentsController {
     @Body() dto: CreateCheckoutDto,
     @Req() req: Request,
   ): Promise<{ url: string }> {
-    const userId = (req.user as { userId: string }).userId;
+  const userId = (req.user as { sub: string }).sub;
     return this.paymentsService.createCheckoutSession(dto, userId);
   }
 
@@ -53,7 +53,7 @@ export class PaymentsController {
   @UseGuards(JwtAuthGuard)
   @Get("subscription")
   async getUserSubscription(@Req() req: Request) {
-    const userId = (req.user as { userId: string }).userId;
+    const userId = (req.user as { sub: string }).sub;
     return this.paymentsService.getUserSubscription(userId);
   }
 }
