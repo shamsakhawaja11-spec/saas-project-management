@@ -20,7 +20,7 @@ export class PaymentsController {
   constructor(private readonly paymentsService: PaymentsService) {}
 
   // POST /payments/checkout
-  // Protected - user must be logged in
+  // Protected - user must be logged in 
   // Creates a Stripe checkout session and returns the URL
   // Frontend redirects user to this URL to complete payment
   @UseGuards(JwtAuthGuard)
